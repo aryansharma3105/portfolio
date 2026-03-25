@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARYAN SHARMA | Full Stack Developer & Data Analyst</title>
+    <meta name="description" content="Full Stack Developer & Data Analyst - Building high-performance digital systems with precision and data.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/sections.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="loading-text">INITIALIZING</span>
+                <span class="loading-dots">...</span>
+            </div>
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
+            <div class="loading-status">
+                <span class="status-text">Loading assets</span>
+                <span class="status-percent">0%</span>
+            </div>
+        </div>
+        <div class="scanlines"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-wrapper">
+        <div class="cursor-crosshair">
+            <div class="crosshair-line horizontal"></div>
+            <div class="crosshair-line vertical"></div>
+            <div class="crosshair-dot"></div>
+        </div>
+        <div class="cursor-ring"></div>
+    </div>
+
+    <!-- Scanline Overlay -->
+    <div class="scanline-overlay"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">AS</span>
+                <span class="logo-tag">DEV.01</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero" data-text="HOME">HOME</a></li>
+                <li><a href="#about" data-text="DOSSIER">DOSSIER</a></li>
+                <li><a href="#skills" data-text="LOADOUT">LOADOUT</a></li>
+                <li><a href="#services" data-text="ABILITIES">ABILITIES</a></li>
+                <li><a href="#projects" data-text="MISSIONS">MISSIONS</a></li>
+                <li><a href="#aim-trainer" data-text="RANGE">RANGE</a></li>
+                <li><a href="#cv" data-text="CAREER">CAREER</a></li>
+                <li><a href="#contact" data-text="COMMS">COMMS</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="sound-toggle" aria-label="Toggle sound">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <button class="terminal-trigger" aria-label="Open terminal">
+                    <i class="fas fa-terminal"></i>
+                    <span class="shortcut">Ctrl+K</span>
+                </button>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="#hero">HOME</a></li>
+            <li><a href="#about">DOSSIER</a></li>
+            <li><a href="#skills">LOADOUT</a></li>
+            <li><a href="#services">ABILITIES</a></li>
+            <li><a href="#projects">MISSIONS</a></li>
+            <li><a href="#aim-trainer">RANGE</a></li>
+            <li><a href="#cv">CAREER</a></li>
+            <li><a href="#contact">COMMS</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-background">
+                <div class="grid-overlay"></div>
+                <div class="radar-sweep"></div>
+                <div class="particles-container"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-profile">
+                    <div class="profile-frame">
+                        <div class="profile-image-container">
+                            <img src="assets/images/profile.jpg" alt="Aryan Sharma" class="profile-image">
+                            <div class="profile-overlay">
+                                <div class="scan-line"></div>
+                                <div class="corner-tl"></div>
+                                <div class="corner-tr"></div>
+                                <div class="corner-bl"></div>
+                                <div class="corner-br"></div>
+                            </div>
+
+                        </div>
+                        <div class="profile-tag">
+                            <span class="tag-id">ID: DEV-01</span>
+                            <span class="tag-status">ACTIVE</span>
+                        </div>
+                    </div>
+                    
+
+                </div>
+                <div class="hero-info">
+                    <div class="hero-tag">
+                        <span class="tag-line"></span>
+                        <span class="tag-text">AGENT PROFILE</span>
+                    </div>
+                    <h1 class="hero-name">
+                        <span class="name-line line-1">ARYAN</span>
+                        <span class="name-line line-2">SHARMA</span>
+                    </h1>
+                    <div class="hero-title">
+                        <span class="title-bracket">[</span>
+                        <span class="title-text">FULL STACK DEVELOPER & DATA ANALYST</span>
+                        <span class="title-bracket">]</span>
+                    </div>
+                    <p class="hero-tagline">
+                        Building high-performance digital systems with precision and data.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            <span class="btn-text">VIEW MISSIONS</span>
+                            <span class="btn-icon"><i class="fas fa-crosshairs"></i></span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span class="btn-text">INITIATE CONTACT</span>
+                            <span class="btn-icon"><i class="fas fa-satellite-dish"></i></span>
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">3+</span>
+                            <span class="stat-label">PROJECTS</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value">2023</span>
+                            <span class="stat-label">SINCE</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-value">LPU</span>
+                            <span class="stat-label">AFFILIATION</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <div class="scroll-indicator">
+                    <span class="scroll-text">SCROLL</span>
+                    <div class="scroll-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">DOSSIER</span>
+                    <h2 class="section-title">AGENT DOSSIER</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-card">
+                        <div class="card-header">
+                            <span class="card-icon"><i class="fas fa-id-card"></i></span>
+                            <span class="card-title">PERSONNEL FILE</span>
+                            <span class="card-status">CLASSIFIED</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="dossier-grid">
+                                <div class="dossier-item">
+                                    <span class="dossier-label">CODENAME</span>
+                                    <span class="dossier-value">ARYAN SHARMA</span>
+                                </div>
+                                <div class="dossier-item">
+                                    <span class="dossier-label">ORIGIN</span>
+                                    <span class="dossier-value">HIMACHAL PRADESH, INDIA</span>
+                                </div>
+                                <div class="dossier-item">
+                                    <span class="dossier-label">DOB</span>
+                                    <span class="dossier-value">31 JAN 2005</span>
+                                </div>
+                                <div class="dossier-item">
+                                    <span class="dossier-label">EXPERIENCE</span>
+                                    <span class="dossier-value">3+ PROJECTS</span>
+                                </div>
+                                <div class="dossier-item">
+                                    <span class="dossier-label">ROLE</span>
+                                    <span class="dossier-value">FULL STACK / DATA</span>
+                                </div>
+                                <div class="dossier-item">
+                                    <span class="dossier-label">STATUS</span>
+                                    <span class="dossier-value status-active">ACTIVE</span>
+                                </div>
+                            </div>
+                            <div class="dossier-description">
+                                <p>I'm a full stack developer and data analyst focused on building complete, efficient systems with clean architecture and data-driven decisions. My approach combines technical precision with analytical insight to deliver high-performance solutions.</p>
+                                <p style="margin-top: 16px;">With a strong foundation in computer science from Lovely Professional University, I've developed expertise in modern web technologies, data analytics, and machine learning. I'm passionate about creating innovative solutions that push boundaries and deliver real value.</p>
+                                <p style="margin-top: 16px;">My mission is to bridge the gap between complex data and actionable insights, building systems that are not only functional but also scalable and maintainable. I believe in continuous learning and staying at the forefront of technology trends.</p>
+                            </div>
+                        </div>
+                        <div class="scanning-line"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">SECTION 01</span>
+                    <h2 class="section-title">LOADOUT</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="skills-content">
+                    <!-- Full Stack Category -->
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <span class="category-icon"><i class="fas fa-layer-group"></i></span>
+                            <h3 class="category-title">FULL STACK</h3>
+                            <span class="category-level">PRIMARY</span>
+                        </div>
+                        <div class="skills-grid">
+                            <div class="skill-item" data-skill="HTML/CSS">
+                                <span class="skill-name">HTML / CSS</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-fill="95"></div>
+                                </div>
+                                <span class="skill-percent">95%</span>
+                            </div>
+                            <div class="skill-item" data-skill="JavaScript">
+                                <span class="skill-name">JAVASCRIPT</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-fill="90"></div>
+                                </div>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-item" data-skill="React">
+                                <span class="skill-name">REACT</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-fill="85"></div>
+                                </div>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-item" data-skill="Node.js">
+                                <span class="skill-name">NODE.JS / EXPRESS</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-fill="80"></div>
+                                </div>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-item" data-skill="MongoDB">
+                                <span class="skill-name">MONGODB</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-fill="75"></div>
+                                </div>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-item" data-skill="PostgreSQL">
+                                <span class="skill-name">POSTGRESQL</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-fill="70"></div>
+                                </div>
+                                <span class="skill-percent">70%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Analytics Category -->
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <span class="category-icon"><i class="fas fa-chart-line"></i></span>
+                            <h3 class="category-title">DATA ANALYTICS</h3>
+                            <span class="category-level">SECONDARY</span>
+                        </div>
+                        <div class="skills-grid">
+                            <div class="skill-item" data-skill="Python">
+                                <span class="skill-name">PYTHON</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-fill="90"></div>
+                                </div>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-item" data-skill="Pandas">
+                                <span class="skill-name">PANDAS / NUMPY</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-fill="85"></div>
+                                </div>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-item" data-skill="PowerBI">
+                                <span class="skill-name">POWER BI</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-fill="80"></div>
+                                </div>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-item" data-skill="DataViz">
+                                <span class="skill-name">DATA VISUALIZATION</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-fill="85"></div>
+                                </div>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DSA Category -->
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <span class="category-icon"><i class="fas fa-brain"></i></span>
+                            <h3 class="category-title">DSA</h3>
+                            <span class="category-level">TACTICAL</span>
+                        </div>
+                        <div class="skills-grid">
+                            <div class="skill-item" data-skill="Arrays">
+                                <span class="skill-name">ARRAYS & STRINGS</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-fill="90"></div>
+                                </div>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-item" data-skill="Trees">
+                                <span class="skill-name">TREES & GRAPHS</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-fill="80"></div>
+                                </div>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-item" data-skill="DP">
+                                <span class="skill-name">DYNAMIC PROGRAMMING</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-fill="75"></div>
+                                </div>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-item" data-skill="ProblemSolving">
+                                <span class="skill-name">PROBLEM SOLVING</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-fill="85"></div>
+                                </div>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">SECTION 02</span>
+                    <h2 class="section-title">ABILITIES</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="services-content">
+                    <!-- Core Abilities -->
+                    <div class="ability-card" data-ability="fullstack">
+                        <div class="ability-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="ability-key">Q</div>
+                        <h3 class="ability-name">FULL STACK DEVELOPMENT</h3>
+                        <p class="ability-description">Complete web application development from frontend to backend with modern technologies and scalable architecture. Building responsive, performant applications with clean code practices.</p>
+                        <div class="ability-stats">
+                            <span class="ability-stat">DAMAGE: HIGH</span>
+                            <span class="ability-stat">RANGE: GLOBAL</span>
+                        </div>
+                        <div class="ability-activate">
+                            <div class="activate-bar">
+                                <div class="activate-progress"></div>
+                            </div>
+                            <button class="btn btn-ability" data-ability="fullstack">
+                                <span class="btn-text">ACTIVATE</span>
+                                <span class="btn-icon"><i class="fas fa-crosshairs"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ability-card" data-ability="data">
+                        <div class="ability-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="ability-key">E</div>
+                        <h3 class="ability-name">DATA ANALYSIS & DASHBOARDS</h3>
+                        <p class="ability-description">Transform raw data into actionable insights with interactive dashboards and comprehensive visualizations. Expert in Power BI, Python analytics, and business intelligence solutions.</p>
+                        <div class="ability-stats">
+                            <span class="ability-stat">UTILITY: HIGH</span>
+                            <span class="ability-stat">COOLDOWN: FAST</span>
+                        </div>
+                        <div class="ability-activate">
+                            <div class="activate-bar">
+                                <div class="activate-progress"></div>
+                            </div>
+                            <button class="btn btn-ability" data-ability="data">
+                                <span class="btn-text">ACTIVATE</span>
+                                <span class="btn-icon"><i class="fas fa-crosshairs"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ability-card" data-ability="predictive">
+                        <div class="ability-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="ability-key">C</div>
+                        <h3 class="ability-name">PREDICTIVE ANALYTICS</h3>
+                        <p class="ability-description">Machine learning models and statistical analysis to forecast trends and optimize decision-making. From regression models to neural networks for complex predictions.</p>
+                        <div class="ability-stats">
+                            <span class="ability-stat">PRECISION: HIGH</span>
+                            <span class="ability-stat">IMPACT: CRITICAL</span>
+                        </div>
+                        <div class="ability-activate">
+                            <div class="activate-bar">
+                                <div class="activate-progress"></div>
+                            </div>
+                            <button class="btn btn-ability" data-ability="predictive">
+                                <span class="btn-text">ACTIVATE</span>
+                                <span class="btn-icon"><i class="fas fa-crosshairs"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Technical Abilities -->
+                    <div class="ability-card" data-ability="api">
+                        <div class="ability-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <div class="ability-key">X</div>
+                        <h3 class="ability-name">API DEVELOPMENT</h3>
+                        <p class="ability-description">Design and build robust RESTful and GraphQL APIs with authentication, rate limiting, and comprehensive documentation. Expert in Node.js, Express, and API security best practices.</p>
+                        <div class="ability-stats">
+                            <span class="ability-stat">SPEED: FAST</span>
+                            <span class="ability-stat">RELIABILITY: MAX</span>
+                        </div>
+                        <div class="ability-activate">
+                            <div class="activate-bar">
+                                <div class="activate-progress"></div>
+                            </div>
+                            <button class="btn btn-ability" data-ability="api">
+                                <span class="btn-text">ACTIVATE</span>
+                                <span class="btn-icon"><i class="fas fa-crosshairs"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ability-card" data-ability="database">
+                        <div class="ability-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="ability-key">F</div>
+                        <h3 class="ability-name">DATABASE ARCHITECTURE</h3>
+                        <p class="ability-description">Design optimized database schemas for SQL and NoSQL systems. Expert in query optimization, indexing strategies, and data modeling for high-performance applications.</p>
+                        <div class="ability-stats">
+                            <span class="ability-stat">STORAGE: MASSIVE</span>
+                            <span class="ability-stat">QUERY: OPTIMIZED</span>
+                        </div>
+                        <div class="ability-activate">
+                            <div class="activate-bar">
+                                <div class="activate-progress"></div>
+                            </div>
+                            <button class="btn btn-ability" data-ability="database">
+                                <span class="btn-text">ACTIVATE</span>
+                                <span class="btn-icon"><i class="fas fa-crosshairs"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ability-card" data-ability="cloud">
+                        <div class="ability-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="ability-key">V</div>
+                        <h3 class="ability-name">CLOUD & DEVOPS</h3>
+                        <p class="ability-description">Deploy and manage applications on cloud platforms with CI/CD pipelines, containerization, and infrastructure as code. Ensuring scalability, reliability, and automated workflows.</p>
+                        <div class="ability-stats">
+                            <span class="ability-stat">UPTIME: 99.9%</span>
+                            <span class="ability-stat">SCALE: INFINITE</span>
+                        </div>
+                        <div class="ability-activate">
+                            <div class="activate-bar">
+                                <div class="activate-progress"></div>
+                            </div>
+                            <button class="btn btn-ability" data-ability="cloud">
+                                <span class="btn-text">ACTIVATE</span>
+                                <span class="btn-icon"><i class="fas fa-crosshairs"></i></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">SECTION 03</span>
+                    <h2 class="section-title">MISSIONS</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="projects-content">
+                    <!-- Completed Missions -->
+                    <div class="mission-card" data-project="cricket">
+                        <div class="mission-image">
+                            <div class="mission-placeholder">
+                                <i class="fas fa-cricket"></i>
+                            </div>
+                            <div class="mission-overlay">
+                                <span class="mission-status">COMPLETED</span>
+                            </div>
+                        </div>
+                        <div class="mission-info">
+                            <span class="mission-code">MISSION 01</span>
+                            <h3 class="mission-name">CRICKET PLAYER ANALYZER</h3>
+                            <p class="mission-brief">Comprehensive cricket statistics analysis platform with player performance metrics and comparative analytics.</p>
+                            <div class="mission-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">Data Viz</span>
+                            </div>
+                            <button class="mission-btn" data-modal="cricket-modal">VIEW DETAILS</button>
+                        </div>
+                    </div>
+
+                    <div class="mission-card" data-project="ufc">
+                        <div class="mission-image">
+                            <div class="mission-placeholder">
+                                <i class="fas fa-fist-raised"></i>
+                            </div>
+                            <div class="mission-overlay">
+                                <span class="mission-status">COMPLETED</span>
+                            </div>
+                        </div>
+                        <div class="mission-info">
+                            <span class="mission-code">MISSION 02</span>
+                            <h3 class="mission-name">UFC FIGHTERS DASHBOARD</h3>
+                            <p class="mission-brief">Interactive dashboard for UFC fighter statistics, fight history analysis, and performance tracking.</p>
+                            <div class="mission-tech">
+                                <span class="tech-tag">Power BI</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Dashboard</span>
+                            </div>
+                            <button class="mission-btn" data-modal="ufc-modal">VIEW DETAILS</button>
+                        </div>
+                    </div>
+
+                    <div class="mission-card" data-project="predictor">
+                        <div class="mission-image">
+                            <div class="mission-placeholder">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="mission-overlay">
+                                <span class="mission-status">COMPLETED</span>
+                            </div>
+                        </div>
+                        <div class="mission-info">
+                            <span class="mission-code">MISSION 03</span>
+                            <h3 class="mission-name">MATCH OUTCOME PREDICTOR</h3>
+                            <p class="mission-brief">Machine learning model for predicting match outcomes based on historical data and team statistics.</p>
+                            <div class="mission-tech">
+                                <span class="tech-tag">ML</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Scikit-learn</span>
+                            </div>
+                            <button class="mission-btn" data-modal="predictor-modal">VIEW DETAILS</button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CV Section -->
+        <section id="cv" class="cv-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">SECTION 04</span>
+                    <h2 class="section-title">CAREER LOG</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="cv-content">
+                    <div class="career-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <span class="marker-dot"></span>
+                                <span class="marker-line"></span>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="timeline-date">2023 - 2027</span>
+                                <h3 class="timeline-title">B.TECH COMPUTER SCIENCE</h3>
+                                <span class="timeline-org">Lovely Professional University</span>
+                                <p class="timeline-desc">Pursuing Bachelor's degree in Computer Science with focus on full stack development and data analytics.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <span class="marker-dot"></span>
+                                <span class="marker-line"></span>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="timeline-date">2021 - 2023</span>
+                                <h3 class="timeline-title">SENIOR SECONDARY (12TH)</h3>
+                                <span class="timeline-org">Kendriya Vidyalaya Bangana</span>
+                                <p class="timeline-desc">Completed senior secondary education with focus on Science and Mathematics.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker">
+                                <span class="marker-dot"></span>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="timeline-date">2019 - 2021</span>
+                                <h3 class="timeline-title">SECONDARY (10TH)</h3>
+                                <span class="timeline-org">Kendriya Vidyalaya Bangana</span>
+                                <p class="timeline-desc">Completed secondary education with strong academic performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cv-actions">
+                        <a href="#" class="btn btn-primary btn-download" download>
+                            <span class="btn-text">DOWNLOAD CV</span>
+                            <span class="btn-icon"><i class="fas fa-download"></i></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aim Trainer Game Section -->
+        <section id="aim-trainer" class="aim-trainer-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">SECTION 05</span>
+                    <h2 class="section-title">RANGE PRACTICE</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="aim-trainer-content">
+                    <div class="game-container" id="gameContainer">
+                        <div class="game-ui">
+                            <div class="game-stats">
+                                <div class="stat-box">
+                                    <span class="stat-label">SCORE</span>
+                                    <span class="stat-value" id="scoreValue">0</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-label">TIME</span>
+                                    <span class="stat-value" id="timeValue">30</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-label">ACCURACY</span>
+                                    <span class="stat-value" id="accuracyValue">100%</span>
+                                </div>
+                            </div>
+                            <div class="game-controls">
+                                <button class="btn btn-primary" id="startGameBtn">
+                                    <span class="btn-text">START MISSION</span>
+                                    <span class="btn-icon"><i class="fas fa-play"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="game-area" id="gameArea">
+                            <div class="game-overlay" id="gameOverlay">
+                                <div class="overlay-content">
+                                    <i class="fas fa-crosshairs"></i>
+                                    <h3>RANGE READY</h3>
+                                    <p>Click targets to score. Speed and accuracy matter.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="game-crosshair" id="gameCrosshair"></div>
+                    </div>
+                    <div class="game-instructions">
+                        <div class="instruction-card">
+                            <span class="inst-icon"><i class="fas fa-bullseye"></i></span>
+                            <span class="inst-text">Click targets quickly</span>
+                        </div>
+                        <div class="instruction-card">
+                            <span class="inst-icon"><i class="fas fa-clock"></i></span>
+                            <span class="inst-text">30 seconds per round</span>
+                        </div>
+                        <div class="instruction-card">
+                            <span class="inst-icon"><i class="fas fa-trophy"></i></span>
+                            <span class="inst-text">Beat your high score</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">SECTION 06</span>
+                    <h2 class="section-title">COMMS PANEL</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-form-container">
+                        <div class="form-header">
+                            <span class="form-icon"><i class="fas fa-satellite-dish"></i></span>
+                            <span class="form-title">TRANSMISSION FORM</span>
+                            <span class="form-status">ENCRYPTED</span>
+                        </div>
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">OPERATIVE NAME</label>
+                                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                                    <div class="input-scan-line"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">COMMUNICATION CHANNEL</label>
+                                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                                    <div class="input-scan-line"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">TRANSMISSION SUBJECT</label>
+                                <input type="text" id="subject" name="subject" required placeholder="Enter subject">
+                                <div class="input-scan-line"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">MESSAGE CONTENT</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Enter your message"></textarea>
+                                <div class="input-scan-line"></div>
+                            </div>
+                            <div class="transmit-container">
+                                <div class="transmit-bar">
+                                    <div class="transmit-progress" id="transmitProgress"></div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-submit" id="transmitBtn">
+                                    <span class="btn-text" id="transmitText">INITIATE TRANSMISSION</span>
+                                    <span class="btn-icon" id="transmitIcon"><i class="fas fa-satellite-dish"></i></span>
+                                </button>
+                                <div class="transmit-status" id="transmitStatus">
+                                    <span class="status-indicator"></span>
+                                    <span class="status-text">READY TO TRANSMIT</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <div class="info-card">
+                            <span class="info-icon"><i class="fas fa-envelope"></i></span>
+                            <span class="info-label">EMAIL</span>
+                            <span class="info-value">nfaryan.biz@gmail.com</span>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-icon"><i class="fas fa-map-marker-alt"></i></span>
+                            <span class="info-label">LOCATION</span>
+                            <span class="info-value">Himachal Pradesh, India</span>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">AS</span>
+                    <span class="logo-tag">DEV.01</span>
+                </div>
+                <p class="footer-text">TACTICAL DEVELOPMENT SYSTEMS</p>
+                <p class="footer-copy">2026 ARYAN SHARMA. ALL RIGHTS RESERVED.</p>
+            </div>
+            <div class="footer-decoration">
+                <span class="deco-line"></span>
+                <span class="deco-dot"></span>
+                <span class="deco-line"></span>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- VALORANT Chat System -->
+    <div class="chat-overlay" id="chatOverlay">
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="chat-tabs">
+                    <button class="chat-tab active" data-tab="team">
+                        <i class="fas fa-users"></i>
+                        <span>TEAM</span>
+                    </button>
+                    <button class="chat-tab" data-tab="all">
+                        <i class="fas fa-globe"></i>
+                        <span>ALL</span>
+                    </button>
+                    <button class="chat-tab" data-tab="party">
+                        <i class="fas fa-user-friends"></i>
+                        <span>PARTY</span>
+                    </button>
+                </div>
+                <button class="chat-close" aria-label="Close chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message system">
+                    <span class="msg-time">[00:00]</span>
+                    <span class="msg-sender system">SYSTEM:</span>
+                    <span class="msg-text">Welcome to Agent Profile. Type /help for commands.</span>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <div class="chat-channel-indicator">
+                    <span id="currentChannel">TEAM</span>
+                </div>
+                <input type="text" id="chatInput" class="chat-input" placeholder="Type a message..." autocomplete="off" spellcheck="false">
+                <button class="chat-send" id="chatSend">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer HUD Overlay contains: Location, Kill Feed, Progress Bar, and Chat -->
+
+    <!-- Project Modals -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-content" id="modalContent">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/data.js"></script>
+    <script src="js/sound.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

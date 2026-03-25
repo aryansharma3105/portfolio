@@ -1,0 +1,539 @@
+/* ============================================
+   VALORANT PORTFOLIO - ANIMATIONS
+   ============================================ */
+
+/* ============================================
+   GLITCH EFFECT
+   ============================================ */
+.glitch {
+    position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    animation: glitch-1 0.3s infinite linear alternate-reverse;
+    color: var(--val-red);
+    z-index: -1;
+}
+
+.glitch::after {
+    animation: glitch-2 0.3s infinite linear alternate-reverse;
+    color: var(--hud-blue);
+    z-index: -2;
+}
+
+@keyframes glitch-1 {
+    0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 0); }
+    20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, 0); }
+    40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 0); }
+    60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, 0); }
+    80% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 0); }
+    100% { clip-path: inset(30% 0 20% 0); transform: translate(2px, 0); }
+}
+
+@keyframes glitch-2 {
+    0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, 0); }
+    20% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, 0); }
+    40% { clip-path: inset(30% 0 20% 0); transform: translate(2px, 0); }
+    60% { clip-path: inset(15% 0 80% 0); transform: translate(-2px, 0); }
+    80% { clip-path: inset(55% 0 10% 0); transform: translate(2px, 0); }
+    100% { clip-path: inset(40% 0 30% 0); transform: translate(-2px, 0); }
+}
+
+/* Glitch Hover Effect */
+.glitch-hover:hover {
+    animation: glitch-shake 0.3s ease;
+}
+
+@keyframes glitch-shake {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+}
+
+/* ============================================
+   TEXT REVEAL ANIMATION
+   ============================================ */
+.text-reveal {
+    overflow: hidden;
+}
+
+.text-reveal span {
+    display: inline-block;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.text-reveal.revealed span {
+    animation: textReveal 0.6s ease forwards;
+}
+
+@keyframes textReveal {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Character Split Animation */
+.char-split .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px) rotateX(-90deg);
+}
+
+.char-split.animate .char {
+    animation: charReveal 0.5s ease forwards;
+}
+
+@keyframes charReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+/* ============================================
+   SCANNING LINE
+   ============================================ */
+.scanning-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--val-red), transparent);
+    box-shadow: 0 0 10px var(--val-red);
+    animation: scan 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes scan {
+    0% { top: 0; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* ============================================
+   RADAR SWEEP
+   ============================================ */
+.radar-sweep {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150vmax;
+    height: 150vmax;
+    transform: translate(-50%, -50%);
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        transparent 300deg,
+        rgba(255, 70, 85, 0.03) 360deg
+    );
+    animation: radarRotate 8s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes radarRotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ============================================
+   GRID OVERLAY
+   ============================================ */
+.grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 70, 85, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 70, 85, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+}
+
+/* ============================================
+   PULSE GLOW
+   ============================================ */
+.pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { 
+        box-shadow: 0 0 5px var(--val-red-glow);
+    }
+    50% { 
+        box-shadow: 0 0 20px var(--val-red-glow), 0 0 40px var(--val-red-glow);
+    }
+}
+
+/* ============================================
+   FLOATING ANIMATION
+   ============================================ */
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ============================================
+   TYPING CURSOR
+   ============================================ */
+.typing-cursor::after {
+    content: '|';
+    animation: blink 1s infinite;
+    color: var(--val-red);
+}
+
+/* ============================================
+   FADE IN UP
+   ============================================ */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.fade-in-up.visible {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   FADE IN LEFT/RIGHT
+   ============================================ */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.fade-in-left.visible {
+    animation: fadeInLeft 0.6s ease forwards;
+}
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+.fade-in-right.visible {
+    animation: fadeInRight 0.6s ease forwards;
+}
+
+@keyframes fadeInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ============================================
+   SCALE IN
+   ============================================ */
+.scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.scale-in.visible {
+    animation: scaleIn 0.5s ease forwards;
+}
+
+@keyframes scaleIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ============================================
+   STAGGER CHILDREN
+   ============================================ */
+.stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.stagger-children.visible > * {
+    animation: staggerFadeIn 0.5s ease forwards;
+}
+
+.stagger-children.visible > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children.visible > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children.visible > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children.visible > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children.visible > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children.visible > *:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes staggerFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   SKILL BAR FILL
+   ============================================ */
+.skill-fill {
+    width: 0%;
+    transition: width 1s ease-out;
+}
+
+.skill-fill.filled {
+    width: var(--fill-percent);
+}
+
+/* ============================================
+   HOVER GLOW
+   ============================================ */
+.hover-glow {
+    transition: all var(--transition-normal);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 30px var(--val-red-glow);
+    border-color: var(--val-red);
+}
+
+/* ============================================
+   ROTATE INFINITE
+   ============================================ */
+.rotate-slow {
+    animation: rotateSlow 20s linear infinite;
+}
+
+@keyframes rotateSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   SHAKE
+   ============================================ */
+.shake {
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* ============================================
+   BOUNCE
+   ============================================ */
+.bounce {
+    animation: bounce 1s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ============================================
+   SLIDE IN
+   ============================================ */
+.slide-in-left {
+    animation: slideInLeft 0.5s ease forwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-right {
+    animation: slideInRight 0.5s ease forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ============================================
+   FLICKER
+   ============================================ */
+.flicker {
+    animation: flicker 2s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+    52% { opacity: 0.3; }
+    54% { opacity: 1; }
+    90% { opacity: 0.9; }
+    92% { opacity: 0.5; }
+    94% { opacity: 1; }
+}
+
+/* ============================================
+   PARTICLES
+   ============================================ */
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--val-red);
+    pointer-events: none;
+    opacity: 0;
+}
+
+.particle.animate {
+    animation: particleFloat 3s ease-out forwards;
+}
+
+@keyframes particleFloat {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0);
+    }
+}
+
+/* ============================================
+   LOADING SPINNER
+   ============================================ */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--val-dark-light);
+    border-top-color: var(--val-red);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   PROGRESS RING
+   ============================================ */
+.progress-ring {
+    transform: rotate(-90deg);
+}
+
+.progress-ring-circle {
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+/* ============================================
+   HOVER LIFT
+   ============================================ */
+.hover-lift {
+    transition: transform var(--transition-normal);
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+/* ============================================
+   BORDER DRAW
+   ============================================ */
+.border-draw {
+    position: relative;
+}
+
+.border-draw::before,
+.border-draw::after {
+    content: '';
+    position: absolute;
+    background: var(--val-red);
+    transition: all var(--transition-slow);
+}
+
+.border-draw::before {
+    width: 0;
+    height: 2px;
+}
+
+.border-draw::after {
+    width: 2px;
+    height: 0;
+}
+
+.border-draw:hover::before {
+    width: 100%;
+}
+
+.border-draw:hover::after {
+    height: 100%;
+}
+
+/* ============================================
+   RIPPLE EFFECT
+   ============================================ */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.ripple:active::after {
+    width: 300px;
+    height: 300px;
+}
